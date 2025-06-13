@@ -4,3 +4,5 @@ flask-cors
 requests
 python-dotenv
 pyodbc
+httpx
+mcp[cli]

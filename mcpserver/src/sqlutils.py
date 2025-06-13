@@ -3,7 +3,7 @@ from typing import Any, List, Dict
 from src.config import config
 
 # Get the connection string from config
-# connection_string = config.sql_connection_string
+connection_string = config.sql_connection_string
 
 def run_sql_query( query: str, params: tuple = ()) -> List[Dict[str, Any]]:
     """

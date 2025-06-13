@@ -35,7 +35,7 @@ def test_conversation():
         send_msg(conversation_id, 'How many tables are in the database?')
         
         # Test with a more complex query
-        send_msg(conversation_id, 'What tables are available? List their names.')
+        # send_msg(conversation_id, 'What tables are available? List their names.')
 
 def test_sql():
     """Test direct SQL connectivity"""
@@ -72,6 +72,6 @@ def test_sql():
         print(f"❌ Table count query failed: {response.json().get('error', 'Unknown error')}")
 
 if __name__ == '__main__':
-    test_sql()  # Test SQL connectivity first
-    print()
+    # test_sql()  # Test SQL connectivity first
+    print('test started')
     test_conversation()  # Then test conversation

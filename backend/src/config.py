@@ -13,10 +13,7 @@ class Config:
             'AZURE_OPENAI_ENDPOINT',
             'AZURE_OPENAI_API_KEY',
             'AZURE_OPENAI_DEPLOYMENT_NAME',
-            'AZURE_SQL_SERVER',
-            'AZURE_SQL_DATABASE',
-            'AZURE_SQL_USERNAME',
-            'AZURE_SQL_PASSWORD'
+
         ]
         
         missing_vars = []
@@ -46,35 +43,7 @@ class Config:
     def azure_openai_api_version(self) -> str:
         return os.getenv('AZURE_OPENAI_API_VERSION', 'preview')
     
-    @property
-    def azure_sql_server(self) -> str:
-        return os.getenv('AZURE_SQL_SERVER')
-    
-    @property
-    def azure_sql_database(self) -> str:
-        return os.getenv('AZURE_SQL_DATABASE')
-    
-    @property
-    def azure_sql_username(self) -> str:
-        return os.getenv('AZURE_SQL_USERNAME')
-    
-    @property
-    def azure_sql_password(self) -> str:
-        return os.getenv('AZURE_SQL_PASSWORD')
-    
-    @property
-    def sql_connection_string(self) -> str:
-        """Builds the SQL Server connection string from individual components."""
-        return (
-            f"Driver={{ODBC Driver 18 for SQL Server}};"
-            f"Server={self.azure_sql_server};"
-            f"Database={self.azure_sql_database};"
-            f"Uid={self.azure_sql_username};"
-            f"Pwd={self.azure_sql_password};"
-            f"Encrypt=yes;"
-            f"TrustServerCertificate=no;"
-            f"Connection Timeout=30;"
-        )
+
     
     def log_config_status(self):
         """Logs the configuration status (without sensitive data)."""
@@ -82,9 +51,6 @@ class Config:
         print(f"   Azure OpenAI Endpoint: {self.azure_openai_endpoint}")
         print(f"   Azure OpenAI Deployment: {self.azure_openai_deployment_name}")
         print(f"   Azure OpenAI API Version: {self.azure_openai_api_version}")
-        print(f"   Azure SQL Server: {self.azure_sql_server}")
-        print(f"   Azure SQL Database: {self.azure_sql_database}")
-        print(f"   Azure SQL Username: {self.azure_sql_username}")
         print("   🔒 Sensitive credentials loaded but not displayed")
 
 # Create a global config instance
